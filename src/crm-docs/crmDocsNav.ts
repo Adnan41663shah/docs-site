@@ -38,6 +38,7 @@ export const CRM_DOCS_NAV: CrmDocsNavGroup[] = [
       { id: 'presales-auto', label: 'If Inquiry Is Created Automatically by Call or Website' },
       { id: 'presales-dashboard', label: 'Presales Dashboard Explanation' },
       { id: 'presales-calls', label: 'Calls Page (Presales View)' },
+      { id: 'presales-website-resubmissions', label: 'Website Resubmissions Dashboard' },
     ],
   },
   {
@@ -53,6 +54,7 @@ export const CRM_DOCS_NAV: CrmDocsNavGroup[] = [
       { id: 'sales-my-inquiries', label: 'My Inquiries Page (Sales)' },
       { id: 'sales-center-inquiries', label: 'Center Inquiries Page' },
       { id: 'sales-e2e', label: 'Sales Inquiry Workflow (End-to-End)' },
+      { id: 'sales-website-resubmissions', label: 'Website Resubmissions Dashboard' },
     ],
   },
   {
@@ -72,6 +74,7 @@ export const CRM_DOCS_NAV: CrmDocsNavGroup[] = [
       { id: 'admin-reports', label: 'Reports Pages' },
       { id: 'admin-users', label: 'User Management Page' },
       { id: 'admin-settings', label: 'Settings Page' },
+      { id: 'admin-website-resubmissions', label: 'Website Resubmissions Dashboard' },
     ],
   },
 ];

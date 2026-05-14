@@ -99,19 +99,30 @@ const CrmDocsLayout: React.FC = () => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-doc-section]'));
     if (sections.length === 0) return;
 
+    const activeSections = new Map<string, IntersectionObserverEntry>();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting && e.target.id)
-          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0));
-        if (visible[0]?.target.id) {
-          setActiveId(visible[0].target.id);
+        entries.forEach((e) => {
+          if (e.isIntersecting && e.target.id) {
+            activeSections.set(e.target.id, e);
+          } else {
+            activeSections.delete(e.target.id);
+          }
+        });
+
+        if (activeSections.size > 0) {
+          const visible = Array.from(activeSections.values()).sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          );
+          if (visible[0]?.target.id) {
+            setActiveId(visible[0].target.id);
+          }
         }
       },
       {
         root: null,
-        rootMargin: '-42% 0px -38% 0px',
-        threshold: [0, 0.05, 0.1, 0.2, 0.35, 0.5],
+        rootMargin: '-10% 0px -70% 0px',
       }
     );
 

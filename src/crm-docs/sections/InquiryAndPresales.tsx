@@ -333,6 +333,24 @@ export function InquiryAndPresalesSections() {
           ]}
         />
       </DocSection>
+      <DocSection id="presales-website-resubmissions">
+        <DocH2>Website Resubmissions Page</DocH2>
+        <DocP>
+          A dedicated queue for monitoring leads who have re-submitted the website form after their inquiry was already created in the CRM.
+        </DocP>
+        <DocH3>How it works</DocH3>
+        <DocUl
+          items={[
+            'Click the Globe/Website icon in the top navbar to access this page.',
+            'As Presales, you can see resubmissions for both Presales and Sales inquiries to help triage and coordinate outreach.',
+            'This page only displays inquiries where the absolutely latest logged activity is "Website Form Resubmission".',
+            'Once you or a Sales user adds any new follow-up, edit, or activity, the inquiry is immediately removed from this queue.',
+          ]}
+        />
+        <DocAlert variant="info" title="Best Practice">
+          Use this page to spot students expressing renewed interest. Add a follow-up or message right away to clear them from this list and progress their journey.
+        </DocAlert>
+      </DocSection>
     </>
   );
 }

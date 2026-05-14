@@ -258,6 +258,24 @@ export function SalesWorkflowSections() {
           ]}
         />
       </DocSection>
+      <DocSection id="sales-website-resubmissions">
+        <DocH2>Website Resubmissions Page (Sales)</DocH2>
+        <DocP>
+          A dedicated queue highlighting your Sales leads who have re-submitted the website form, indicating renewed interest or an urgent question.
+        </DocP>
+        <DocH3>How it works</DocH3>
+        <DocUl
+          items={[
+            'Access it by clicking the Globe/Website icon in the top navigation bar.',
+            'As Sales, you will only see resubmissions for inquiries that belong to the Sales department.',
+            'An inquiry appears here only when its most recent recorded activity is a "Website Form Resubmission".',
+            'To clear an inquiry from this list, simply log a new follow-up or add meaningful activity. The inquiry will vanish from the queue instantly in real-time.',
+          ]}
+        />
+        <DocAlert variant="info" title="Why this is useful">
+          It acts as a high-priority "hot" list. If a student resubmits the form while already in your pipeline, they are trying to reach you right now. Calling them back immediately significantly improves conversion chances.
+        </DocAlert>
+      </DocSection>
     </>
   );
 }

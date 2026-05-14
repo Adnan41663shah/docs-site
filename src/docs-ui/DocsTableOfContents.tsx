@@ -51,12 +51,24 @@ export function DocsTableOfContents({ onNavigate }: { onNavigate: (id: string) =
     const els = headings.map((h) => document.getElementById(h.id)).filter((n): n is HTMLElement => !!n);
     if (els.length === 0) return;
 
+    const activeHeadings = new Map<string, IntersectionObserverEntry>();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting && e.target.id)
-          .sort((a, b) => (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop);
-        if (visible[0]?.target.id) setActiveId(visible[0].target.id);
+        entries.forEach((e) => {
+          if (e.isIntersecting && e.target.id) {
+            activeHeadings.set(e.target.id, e);
+          } else {
+            activeHeadings.delete(e.target.id);
+          }
+        });
+
+        if (activeHeadings.size > 0) {
+          const visible = Array.from(activeHeadings.values()).sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          );
+          if (visible[0]?.target.id) setActiveId(visible[0].target.id);
+        }
       },
       { root: null, rootMargin: '-12% 0px -70% 0px', threshold: [0, 0.1, 0.25, 0.5, 1] }
     );

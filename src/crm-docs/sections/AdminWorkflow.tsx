@@ -293,6 +293,25 @@ export function AdminWorkflowSections() {
           ]}
         />
       </DocSection>
+      <DocSection id="admin-website-resubmissions">
+        <DocH2>Website Resubmissions Page (Admin)</DocH2>
+        <DocP>
+          A dedicated, real-time monitoring queue for inquiries that have been re-submitted through the website by students who already exist in the system (matched by phone number).
+        </DocP>
+        <DocH3>Key features & logic</DocH3>
+        <DocUl
+          items={[
+            'Accessed via the Globe/Website icon in the top navigation bar.',
+            'As an Admin, you can view resubmitted inquiries from all departments (both Presales and Sales).',
+            'Focuses strictly on action: Inquiries appear here only if their latest activity is a "Website Form Resubmission".',
+            'Real-time dismissal: The moment any user logs a new follow-up or meaningful activity, the inquiry is instantly and automatically removed from this list.',
+            'Streamlined UI: The search bar has been intentionally omitted to encourage clearing the queue quickly rather than using it as a general search page.',
+          ]}
+        />
+        <DocAlert variant="info" title="Why this matters">
+          Repeat website submissions signal high intent or urgency from the student. This dashboard ensures they are prioritized and addressed immediately without getting lost in the broader queues.
+        </DocAlert>
+      </DocSection>
     </>
   );
 }
